@@ -1,0 +1,75 @@
+.stack {
+  width: 100%;
+}
+.title {
+  margin: 0 0 96px 0;
+  font-size: 46px;
+  font-weight: 600;
+}
+.slide {
+  width: 430px;
+  box-sizing: border-box;
+}
+.swiper {
+  box-sizing: border-box;
+  padding-left: 8px;
+  cursor: pointer;
+  position: relative;
+}
+.card {
+  width: 100%;
+  height: 388px;
+  border-radius: 16px;
+  box-shadow:
+    inset 0px 1px 2px rgba(0, 0, 0, 0.15),
+    0px 2px 6px rgba(0, 0, 0, 0.15); 
+  background: var(--neutral-100);
+}
+.cardInner {
+  padding: 100px 32px 32px 32px;
+  display: grid;
+  grid-template-rows: 124px 1fr;
+  row-gap: 20px;
+}
+.head {
+  display: flex;
+  align-items: flex-start;
+}
+.subtitle {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--accent-green-100);
+}
+.description {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+:global(.swiper-pagination) {
+  position: static;
+  margin-top: 52px;
+}
+
+:global(.swiper-pagination-bullet) {
+  width: 12px;
+  height: 12px;
+}
+:global(.swiper-pagination-bullet-active) {
+  background: var(--accent-purple-100);
+}
+.prev, .next {
+  background-color: transparent;
+  border: none;
+  width: 98px;
+  position: absolute;
+  color: var(--accent-purple-100);
+}
+.prev {
+  bottom: -9px;
+  right: 0;
+}
+.next {
+  bottom: -9px;
+  left: 0;
+}
