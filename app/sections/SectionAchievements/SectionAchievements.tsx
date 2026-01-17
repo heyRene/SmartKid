@@ -38,8 +38,9 @@ const STACK: StackCard[] = [
 export default function SectionAchievements() {
   return (
     <section
-      className={styles.stack}
+      className={styles.achievements}
       aria-label="Что делает занятия особенными"
+      id="achievements"
     >
       <h2 className={styles.title}>Что делает занятия особенными</h2>
 
@@ -47,11 +48,14 @@ export default function SectionAchievements() {
         className={styles.swiper}
         modules={[Pagination, Navigation, A11y]}
         spaceBetween={24}
-        slidesPerView="auto"
+        slidesPerView={1}
         pagination={{ clickable: true }}
         navigation={{
           prevEl: `.${styles.prev}`,
           nextEl: `.${styles.next}`,
+        }}
+        breakpoints={{
+          581: { slidesPerView: "auto" },
         }}
       >
         <button className={styles.prev} type="button" aria-label="Previous">
@@ -96,6 +100,7 @@ export default function SectionAchievements() {
           </SwiperSlide>
         ))}
       </Swiper>
+      <img className={styles.star} src="/images/decorations/purple-star.svg" />
     </section>
   );
 }

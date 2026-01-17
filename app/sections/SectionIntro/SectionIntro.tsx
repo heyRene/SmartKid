@@ -3,7 +3,7 @@ import styles from "./SectionIntro.module.css";
 
 export default function SectionIntro() {
   return (
-    <section className={styles.intro}>
+    <section className={styles.intro} id="intro">
       <h1 className={styles.title}>SMART KID</h1>
 
       <p className={styles.span}>
@@ -23,6 +23,8 @@ export default function SectionIntro() {
           src="/images/girl-with-flower.png"
           alt="A little girl with a flower."
         />
+        <img className={styles.star} src="/images/decorations/purple-star.svg" />
     </section>
+    
   );
 }

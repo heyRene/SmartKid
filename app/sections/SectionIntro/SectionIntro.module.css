@@ -1,7 +1,7 @@
 .intro {
   width: 100%;
   min-height: 860px;
-  overflow: hidden;
+  overflow: visible;
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -13,20 +13,33 @@
   column-gap: 24px;
   row-gap: 40px;
   align-items: flex-start;
+  position: relative;
 }
 
 .title {
   grid-column: 1 / -1;
   width: 100%;
-  margin: 0 0 48px 0;
+  margin: 30px 0 48px;
 
   font-weight: 900;
   text-transform: uppercase;
   line-height: 0.9;
-
   color: var(--accent-green-100);
 
-  font-size: clamp(40px, 15vw, 241px);
+  font-size: clamp(40px, 15vw, 224px);
+  overflow-wrap: break-word;
+}
+.star {
+  position: absolute;
+  top: 190px;
+  right: -112px;
+  z-index: -1;
+  transition: transform 0.25s ease;
+  will-change: transform;
+}
+
+.star:hover {
+  animation: star-shake 0.4s ease-in-out;
 }
 
 .subtitle {
@@ -63,42 +76,81 @@
   gap: 16px;
   align-self: end;
 }
-
-.button {
-  max-width: 272px;
-  background: var(--accent-purple-100);
-  color: var(--neutral-900);
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 0;
-  border-radius: 14px;
-  font-size: 30px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-bottom: 24px;
-  transition: 0.4s ease;
-}
-
-.button:hover {
-  opacity: 0.6;
-}
-
 .description {
   font-size: 20px;
 }
+@media (max-width: 991px) {
+  .title {
+    font-size: clamp(32px, calc(78px + 14svw), 200px);
+    margin: 0 0 20px;
+  }
+  .subtitle {
+    grid-column: 6 / 12;
+  }
+  .span {
+    font-size: 18px;
+    grid-column: 1 / 4;
+  }
+  .ctaBox {
+    grid-column: 6 / 11;
+    grid-row: 6;
+  }
+  .image {
+    height: 160px;
+    width: 168px;
+    grid-row: 6;
+  }
+}
 
 @media (max-width: 768px) {
-  .intro {
-    padding: 60px 16px;
+  .title {
+    font-size: clamp(32px, calc(52px + 14svw), 200px);
   }
-
-  .subtitle {
-    font-size: 24px;
+  .intro {
+    padding: 40px 16px;
+  }
+  .span {
+    grid-column: 1 / 4;
   }
 
   .description {
-    font-size: 16px;
+    font-size: 18px;
+  }
+}
+@media (max-width: 580px) {
+  .title {
+    font-size: clamp(32px, calc(45px + 11svw), 180px);
+  }
+  .intro {
+    padding: 40px 16px;
+  }
+  .span {
+    display: none;
+  }
+  .subtitle {
+    font-size: 40px;
+    grid-column: 1 / 12;
+  }
+  .image {
+    height: 220px;
+    width: 220px;
+    grid-column: 1 / 12;
+    grid-row: 7;
+  }
+  .ctaBox {
+    grid-column: 1 / 12;
+    grid-row: 8;
+    gap: 28px;
+  }
+  .description {
+    font-size: 22px;
+  }
+}
+@media (max-width: 390px) {
+  .title {
+    font-size: clamp(32px, calc(52px + 4svw), 180px);
+  }
+  .subtitle {
+    font-size: 28px;
   }
 }

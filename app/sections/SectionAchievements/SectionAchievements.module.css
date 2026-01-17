@@ -1,13 +1,15 @@
-.stack {
+.achievements {
   width: 100%;
+  overflow: visible;
 }
 .title {
   margin: 0 0 96px 0;
-  font-size: 46px;
+  font-size: 52px;
   font-weight: 600;
+  position: relative;
 }
 .slide {
-  width: 430px;
+  width: 464px;
   box-sizing: border-box;
 }
 .swiper {
@@ -20,9 +22,8 @@
   width: 100%;
   height: 388px;
   border-radius: 16px;
-  box-shadow:
-    inset 0px 1px 2px rgba(0, 0, 0, 0.15),
-    0px 2px 6px rgba(0, 0, 0, 0.15); 
+  box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.15),
+    0px 2px 6px rgba(0, 0, 0, 0.15);
   background: var(--neutral-100);
 }
 .cardInner {
@@ -58,7 +59,8 @@
 :global(.swiper-pagination-bullet-active) {
   background: var(--accent-purple-100);
 }
-.prev, .next {
+.prev,
+.next {
   background-color: transparent;
   border: none;
   width: 98px;
@@ -72,4 +74,92 @@
 .next {
   bottom: -9px;
   left: 0;
+}
+.star {
+  z-index: -1;
+  will-change: transform;
+  width: 60px;
+  transition: transform 0.25s;
+  position: absolute;
+  top: 49px;
+  left: 559px;
+}
+.star:hover {
+  animation: star-shake 0.4s ease-in-out;
+}
+@keyframes star-shake {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(-2px, 1px) rotate(-2deg);
+  }
+  40% {
+    transform: translate(2px, -1px) rotate(2deg);
+  }
+  60% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@media (max-width: 991px) {
+  .title {
+    font-size: 40px;
+    margin-bottom: 54px;
+  }
+  .subtitle {
+    font-size: 24px;
+  }
+  .slide {
+    width: 300px;
+    box-sizing: border-box;
+  }
+  .cardInner {
+    grid-template-rows: 92px 1fr;
+    padding: 80px 20px;
+  }
+}
+
+@media (max-width: 580px) {
+  .description {
+    font-size: 18px;
+  }
+
+  .card {
+    height: 315px;
+  }
+  .cardInner {
+    padding: 44px 20px;
+  }
+  .prev,
+  .next {
+    width: 60px;
+  }
+  .prev {
+    bottom: -1px;
+    right: 0;
+  }
+  .next {
+    bottom: -1px;
+    left: 0;
+  }
+  :global(.swiper-pagination) {
+    margin-top: 30px;
+  }
+
+  :global(.swiper-pagination-bullet) {
+    width: 8px;
+    height: 8px;
+  }
+}
+@media (max-width: 390px) {
+  .title {
+    font-size: 28px;
+  }
 }

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useMemo, useState } from "react";
@@ -26,15 +25,21 @@ const PROGRAMS: Item[] = [
   {
     id: "english-for-kids",
     title: "Английский для дошкольников",
-    image: { src: "/images/teacher-sitting-with-kids.png", alt: "Учитель играет с двумя маленькими детьми." },
+    image: {
+      src: "/images/teacher-sitting-with-kids.png",
+      alt: "Учитель играет с двумя маленькими детьми.",
+    },
     description:
       "На занятиях для дошкольников дети с первых шагов привыкают к английской речи, погружаясь в языковую среду через игру и живое общение.",
-    meta: "Занятия в мини группах два раза в неделю по 60 минут"
+    meta: "Занятия в мини группах два раза в неделю по 60 минут",
   },
   {
     id: "english-for-students",
     title: "Английский для школьников",
-    image: { src: "/images/teacher-near-table-with-kids.png", alt: "Две девочки сидят за столом." },
+    image: {
+      src: "/images/teacher-near-table-with-kids.png",
+      alt: "Две девочки сидят за столом.",
+    },
     description:
       "Мы обучаем школьников английскому по современным учебникам Cambridge, чтобы язык стал частью жизни, а не только подготовкой к экзамену.",
     meta: "Занятия в мини группах два раза в неделю по 60 минут",
@@ -43,7 +48,8 @@ const PROGRAMS: Item[] = [
     id: "crm",
     title: "Разговорный клуб с носителем",
     image: {
-      src: "/images/kids-jumping-with-adults.png", alt: "Дети прыгают на футбольном поле с носителями английского."
+      src: "/images/kids-jumping-with-adults.png",
+      alt: "Дети прыгают на футбольном поле с носителями английского.",
     },
     description:
       "Разговорный клуб с носителем языка - это живая практика, которая помогает детям преодолеть языковой барьер и почувствовать уверенность в общении.",
@@ -52,7 +58,10 @@ const PROGRAMS: Item[] = [
   {
     id: "english-for-exams",
     title: "Английский для экзаменов",
-    image: { src: "/images/girls-talking-at-the-table.png", alt: "Скрин экрана код ревью" },
+    image: {
+      src: "/images/girls-talking-at-the-table.png",
+      alt: "Скрин экрана код ревью",
+    },
     description:
       "Подготовка к ОГЭ, ЕГЭ - это интенсивные занятия с нашими педагогами, где мы не только тренируем язык, но и разбираем все особенности форматов. Такой подход помогает выпускникам чувствовать уверенность и сдавать экзамены на высокий балл.",
     meta: "Занятия в мини группах два раза в неделю по 90 минут",
@@ -60,18 +69,23 @@ const PROGRAMS: Item[] = [
   {
     id: "chineese-with-native",
     title: "Китайский язык с носителем",
-    image: { src: "/images/girls-wrtiting-on-textbook.png", alt: "Превью поддержки" },
-    
+    image: {
+      src: "/images/girls-wrtiting-on-textbook.png",
+      alt: "Превью поддержки",
+    },
+
     description:
       "Знание китайского языка становится всё более востребованным. В нашей школе занятия проходят в мини-группах с преподавателем-носителем.",
     meta: "Занятия в мини группах два раза в неделю по 60 минут",
-
   },
   {
     id: "educational-trips",
     title: "Образовательные поездки",
-    image: { src: "/images/kids-on-football-pitch.png", alt: "Превью поддержки" },
-    
+    image: {
+      src: "/images/kids-on-football-pitch.png",
+      alt: "Превью поддержки",
+    },
+
     description:
       "Образовательные поездки за границу - это уникальная возможность для детей использовать язык в реальной среде. Такие путешествия становятся не только практикой языка, но и источником ярких впечатлений и новых друзей.",
     meta: "",
@@ -92,11 +106,10 @@ export function SectionPrograms({
   const [activeItemIndex, setActiveItemIndex] = useState(initialIndex);
   const activeItem = items[activeItemIndex];
   return (
-    <section className={styles.experience} aria-label={title} id="programs">
+    <section className={styles.programs} aria-label={title} id="programs">
       <h2 className={styles.title}>{title}</h2>
 
       <div className={styles.inner}>
-
         <div className={styles.content}>
           <div className={styles.image}>
             {activeItem.image?.src && (
@@ -106,14 +119,13 @@ export function SectionPrograms({
                 alt={activeItem?.image?.alt}
                 loading="lazy"
               />
-            )
-          }
+            )}
           </div>
 
           <p className={styles.description}>{activeItem.description}</p>
           <p className={styles.meta}>{activeItem.meta}</p>
 
-          <CtaButton/>
+          <CtaButton />
         </div>
 
         <div className={styles.buttonsBlock}>
@@ -125,7 +137,9 @@ export function SectionPrograms({
                 <li key={item.id} className={styles.listItem}>
                   <button
                     type="button"
-                    className={`${styles.listButton} ${isActiveItem ? styles.listButton_active : ""}`}
+                    className={`${styles.listButton} ${
+                      isActiveItem ? styles.listButton_active : ""
+                    }`}
                     onClick={() => setActiveItemIndex(idx)}
                     role="tab"
                     aria-selected={isActiveItem}
@@ -138,9 +152,9 @@ export function SectionPrograms({
               );
             })}
           </ul>
-
         </div>
       </div>
+      <img className={styles.star} src="/images/decorations/purple-star.svg" />
     </section>
   );
 }

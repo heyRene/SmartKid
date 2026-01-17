@@ -1,0 +1,129 @@
+.header {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 0 0 15px 0;
+  cursor: pointer;
+  text-align: left;
+  border-bottom: 1px solid var(--neutral-900);
+  transition: border-color 250ms ease;
+  
+}
+.header_opened {
+  border-bottom: 1px solid var(--accent-green-100);
+}
+
+.title {
+  font-size: 32;
+  font-weight: 600;
+  transition: color 250ms ease;
+}
+
+.title_opened {
+  color: var(--accent-green-100);
+}
+
+.icon {
+  font-size: 22px;
+  line-height: 1;
+  transition: transform 250ms ease;
+}
+
+.body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease, border-color 250ms ease;
+  border-bottom: 1px solid var(--neutral-900);
+  display: flex;
+  align-items: center;
+}
+
+.body_opened {
+  max-height:1600px;
+
+  border-bottom: 1px solid var(--accent-green-100);
+  padding: 40px 0;
+}
+
+.list {
+  list-style: none;
+  padding: 0 0 0 32px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.document {
+  display: flex;
+  justify-content: space-between;
+}
+.label {
+  font-size: 24px;
+  font-weight: 400;
+}
+.link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+  text-decoration: none;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent-purple-100);
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s ease;
+}
+
+.link:hover::after,
+.link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.icon {
+  color: var(--accent-green-100);
+  transition: color 250ms ease, transform 250ms ease;
+}
+.link:hover .icon,
+.link:focus-visible .icon {
+  color: var(--accent-purple-100);
+}
+.link:hover .label,
+.link:focus-visible .label {
+  color: var(--accent-purple-100);
+}
+
+.empty {
+  margin: 0 0 18px;
+  opacity: 0.7;
+}
+@media (max-width: 768px) {
+  .body_opened {
+    padding: 24px 0;
+  }
+  .title {
+    font-size: 24px;  
+  }
+  .list {
+    padding-left: 12px;
+  }
+  .label {
+    max-width: 300px;
+    font-size: 18px;
+  }
+  .icon {
+    width: 23px;
+    height: 23px;
+  }
+}

@@ -17,3 +17,18 @@
 .button:hover {
   background: var(--accent-green-100);
 }
+
+@media (max-width: 991px) {
+  .button {
+    max-width: 215px;
+    padding: 16px 0;
+    font-size: 22px;
+  }
+}
+@media (max-width: 580px) {
+  .button {
+    max-width: unset;
+    width: 100%;
+    font-size: 30px;
+  }
+}

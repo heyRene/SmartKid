@@ -1,25 +1,46 @@
 .footer {
   padding: 80px 0;
 }
-.title {
+.marquee {
   grid-column: 1 / -1;
-  width: 100%;
-  margin: 0 0 48px 0;
 
+  width: 100ssvw;
+  margin-left: calc(50% - 50svw);
+  margin-right: calc(50% - 50svw);
+
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: marquee 15s linear infinite;
+}
+
+.title {
   font-weight: 900;
   text-transform: uppercase;
   line-height: 0.9;
-
   color: var(--accent-purple-100);
+  font-size: clamp(40px, 15svw, 241px);
+  white-space: nowrap;
+  margin: 0 0 48px 0;
+}
 
-  font-size: clamp(40px, 15vw, 241px);
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .list {
   margin: 0;
   padding: 0;
   list-style: none;
-  
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -40,4 +61,59 @@
 
 .link:hover {
   opacity: 0.6;
+}
+@media (max-width: 991px) {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+
+  .item_instagram {
+    grid-column: 1 / 2;
+    justify-self: start;
+    grid-row: 2 / 3;
+  }
+  .item_email {
+    grid-column: 1 / 2;
+    justify-self: start;
+    grid-row: 1 / 2;
+  }
+  .item_phone {
+    grid-column: 2 / 3;
+    justify-self: end;
+  }
+  .item_city {
+    grid-column: 2 / 3;
+    justify-self: end;
+    grid-row: 1 / 2;
+  }
+}
+@media (max-width: 768px) {
+  .item {
+    font-size: 16px;
+  }
+  .footer {
+    padding: 60px 0;
+  }
+}
+@media (max-width: 580px) {
+  .footer {
+    padding: 40px 0 20px;
+  }
+  .list {
+    grid-template-rows: repeat(4, auto);
+    gap: 12px;
+  }
+  .title {
+    margin-bottom: 24px;
+  }
+}
+@media (max-width: 390px) {
+  .list {
+    gap: 8px;
+  }
+  .item {
+    font-size: 14px;
+  }
 }

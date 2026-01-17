@@ -1,0 +1,79 @@
+.header {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  background: var(--neutral-100);
+  z-index: 1000;
+  padding: 48px 0 80px;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+.item {
+  list-style: none;
+}
+.link {
+  font-size: 20px;
+  font-weight: 600;
+  transition: 0.4s ease;
+}
+.logo {
+  max-width: 317px;
+  width: 100%;
+}
+.link:hover {
+  color: var(--accent-green-100);
+}
+.link_active {
+  color: var(--accent-purple-100);
+}
+body:has(#about:target) a[href="/#about"],
+body:has(#programs:target) a[href="/#programs"],
+body:has(#achievements:target) a[href="/#achievements"],
+body:has(#pride:target) a[href="/#pride"] {
+  color: var(--accent-purple-100);
+}
+@media (max-width: 1200px) {
+  .header {
+    padding: 40px 0;
+  }
+  .logo {
+    width: 240px;
+  }
+  .list {
+    gap: 24px;
+  }
+  .link {
+    font-size: 18px;
+  }
+}
+@media (max-width: 991px) {
+  .list {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    padding: 32px 0;
+  }
+}
+@media (max-width: 580px) {
+  .logo {
+    width: 220px;
+  }
+}
+@media (max-width: 390px) {
+  .logo {
+    width: 180px;
+  }
+}

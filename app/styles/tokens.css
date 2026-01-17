@@ -2,10 +2,9 @@
   --font-montserrat: "Montserrat", sans-serif;
   --neutral-0: #ffffff; /*белый, используется как фон*/
   --neutral-100: #FDFBF7; /* белый, используется как фон */
-  --neutral-900: #333333; /* основной тёмный текст */
+  --neutral-900: #000000; /* основной тёмный текст */
 
   --accent-green-100: #C0E13C;
-  --accent-red-100: #E17487;
   --accent-purple-100: #F7C5FD;
   /* --accent-yellow-100: #dee08f;
   --accent-pink-100: #fd9aae;
