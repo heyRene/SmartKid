@@ -105,13 +105,23 @@ export function SectionPrograms({
 
   const contentRef = useRef<HTMLDivElement | null>(null);
 
+  const SCROLL_OFFSET = 200;
+
   const handleSelect = (idx: number) => {
     setActiveItemIndex(idx);
 
+    if (typeof window === "undefined") return;
+    if (!window.matchMedia("(max-width: 580px)").matches) return;
+
     requestAnimationFrame(() => {
-      contentRef.current?.scrollIntoView({
+      if (!contentRef.current) return;
+
+      const elementTop =
+        contentRef.current.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top: elementTop - SCROLL_OFFSET,
         behavior: "smooth",
-        block: "start",
       });
     });
   };
@@ -122,7 +132,7 @@ export function SectionPrograms({
     <section className={styles.programs} aria-label={title} id="programs">
       <h2 className={styles.title}>{title}</h2>
 
-      <div className={styles.inner} >
+      <div className={styles.inner}>
         <div className={styles.content} ref={contentRef}>
           <div className={styles.image}>
             {activeItem.image?.src && (
