@@ -122,8 +122,8 @@ export function SectionPrograms({
     <section className={styles.programs} aria-label={title} id="programs">
       <h2 className={styles.title}>{title}</h2>
 
-      <div className={styles.inner} ref={contentRef}>
-        <div className={styles.content} >
+      <div className={styles.inner} >
+        <div className={styles.content} ref={contentRef}>
           <div className={styles.image}>
             {activeItem.image?.src && (
               <img
