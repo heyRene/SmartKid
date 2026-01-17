@@ -1,5 +1,5 @@
 # 1. Build
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 WORKDIR /app
 
 COPY package*.json ./
@@ -9,7 +9,7 @@ COPY . .
 RUN npm run build
 
 # 2. Production
-FROM node:18-alpine
+FROM node:20-alpine
 WORKDIR /app
 
 ENV NODE_ENV=production
@@ -20,5 +20,4 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 
 EXPOSE 3000
-
 CMD ["npm", "run", "start"]

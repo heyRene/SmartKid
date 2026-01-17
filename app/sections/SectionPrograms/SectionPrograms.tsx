@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import styles from "./SectionPrograms.module.css";
 import CtaButton from "@/app/components/CtaButton/CtaButton";
 
@@ -103,14 +103,27 @@ export function SectionPrograms({
     return idx >= 0 ? idx : 0;
   }, [items, initialId]);
 
+  const contentRef = useRef<HTMLDivElement | null>(null);
+
+  const handleSelect = (idx: number) => {
+    setActiveItemIndex(idx);
+
+    requestAnimationFrame(() => {
+      contentRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  };
+
   const [activeItemIndex, setActiveItemIndex] = useState(initialIndex);
   const activeItem = items[activeItemIndex];
   return (
     <section className={styles.programs} aria-label={title} id="programs">
       <h2 className={styles.title}>{title}</h2>
 
-      <div className={styles.inner}>
-        <div className={styles.content}>
+      <div className={styles.inner} ref={contentRef}>
+        <div className={styles.content} >
           <div className={styles.image}>
             {activeItem.image?.src && (
               <img
@@ -140,7 +153,7 @@ export function SectionPrograms({
                     className={`${styles.listButton} ${
                       isActiveItem ? styles.listButton_active : ""
                     }`}
-                    onClick={() => setActiveItemIndex(idx)}
+                    onClick={() => handleSelect(idx)}
                     role="tab"
                     aria-selected={isActiveItem}
                     aria-controls={`panel-${item.id}`}

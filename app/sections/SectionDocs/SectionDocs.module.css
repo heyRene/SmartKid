@@ -126,10 +126,8 @@
     max-width: 143px;
     bottom: -87px;
   }
-  .purpleStar {
-  }
   .greenStar {
-    top:-7vh;
+    top: -7vh;
   }
 }
 @media (max-width: 768px) {
@@ -152,6 +150,9 @@
   .docs {
     min-height: 500px;
     justify-content: flex-start;
+  }
+  .greenStar, .purpleStar {
+    display: none;
   }
 }
 @media (max-width: 410px) {

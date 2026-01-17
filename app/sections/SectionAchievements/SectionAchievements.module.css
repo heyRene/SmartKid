@@ -69,11 +69,11 @@
 }
 .prev {
   bottom: -9px;
-  right: 0;
+  left: 0;
 }
 .next {
   bottom: -9px;
-  left: 0;
+  right: 0;
 }
 .star {
   z-index: -1;
@@ -143,11 +143,11 @@
   }
   .prev {
     bottom: -1px;
-    right: 0;
+    left: 0;
   }
   .next {
     bottom: -1px;
-    left: 0;
+    right: 0;
   }
   :global(.swiper-pagination) {
     margin-top: 30px;

@@ -58,7 +58,7 @@ export default function SectionAchievements() {
           581: { slidesPerView: "auto" },
         }}
       >
-        <button className={styles.prev} type="button" aria-label="Previous">
+        <button className={styles.next} type="button" aria-label="Previous">
           <svg
             viewBox="0 0 121 37"
             xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +72,7 @@ export default function SectionAchievements() {
             />
           </svg>
         </button>
-        <button className={styles.next} type="button" aria-label="Next">
+        <button className={styles.prev} type="button" aria-label="Next">
           <svg
             viewBox="0 0 121 37"
             xmlns="http://www.w3.org/2000/svg"

@@ -135,11 +135,11 @@
     height: 220px;
     width: 220px;
     grid-column: 1 / 12;
-    grid-row: 7;
+    grid-row: 6;
   }
   .ctaBox {
     grid-column: 1 / 12;
-    grid-row: 8;
+    grid-row: 7;
     gap: 28px;
   }
   .description {
