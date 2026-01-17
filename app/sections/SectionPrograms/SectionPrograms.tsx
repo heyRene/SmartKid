@@ -2,6 +2,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import styles from "./SectionPrograms.module.css";
+import Image from "next/image";
 import CtaButton from "@/app/components/CtaButton/CtaButton";
 
 type Item = {
@@ -136,11 +137,13 @@ export function SectionPrograms({
         <div className={styles.content} ref={contentRef}>
           <div className={styles.image}>
             {activeItem.image?.src && (
-              <img
+              <Image
                 className={styles.imageSrc}
                 src={activeItem?.image?.src}
                 alt={activeItem?.image?.alt}
-                loading="lazy"
+                priority 
+                height={300}
+                width={300}
               />
             )}
           </div>
